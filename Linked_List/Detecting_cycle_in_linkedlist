@@ -1,0 +1,30 @@
+#Floyd’s Tortoise and Hare Algorithm
+class ListNode:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+def has_cycle(head):
+    slow, fast = head, head
+    while fast and fast.next:
+        slow = slow.next  # Move slow pointer by one step
+        fast = fast.next.next  # Move fast pointer by two steps
+        if slow == fast:  # Cycle detected
+            return True
+    return False  # No cycle
+
+# Example usage:
+head = ListNode(1)
+second = ListNode(2)
+third = ListNode(3)
+fourth = ListNode(4)
+fifth = ListNode(5)
+
+# Create the linked list: 1 -> 2 -> 3 -> 4 -> 5 -> 2 (cycle)
+head.next = second
+second.next = third
+third.next = fourth
+fourth.next = fifth
+fifth.next = second  # Cycle here
+
+print("Has cycle:", has_cycle(head))  # Output: True
