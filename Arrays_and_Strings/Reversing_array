@@ -1,0 +1,17 @@
+def reverse_array(arr):
+    # Get the length of the array
+    n = len(arr)
+    
+    # Reverse the array by swapping
+    for i in range(n // 2):
+        # Swap the ith element with the (n-1-i)th element
+        arr[i], arr[n - 1 - i] = arr[n - 1 - i], arr[i]
+
+    return arr
+
+# Example array
+arr = [1, 2, 3,6, 4, 5]
+
+# Call the function and print the reversed array
+reversed_array = reverse_array(arr)
+print("Reversed Array:", reversed_array)
